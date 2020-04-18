@@ -5,11 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Hack Nerd Font:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
 /*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-	"Liberation Mono:pixelsize=16:antialias=true:autohint=true", 
+	"mono:pixelsize=16:antialias=true:autohint=true", 
 };
 
 static int borderpx = 2;
@@ -89,37 +89,35 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.7;
+float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#272822",
-	"#d0d0d0",
-	"#66AA11",
-	"#c47f2c",
-	"#30309b",
-	"#7e40a5",
-	"#3579A8",
-	"#9999AA",
+    /* 8 normal colors */
+    [0] = "#1f1f1f", /* black   */
+    [1] = "#f81118", /* red     */
+    [2] = "#2dc55e", /* green   */
+    [3] = "#ecba0f", /* yellow  */
+    [4] = "#2a84d2", /* blue    */
+    [5] = "#4e5ab7", /* magenta */
+    [6] = "#1081d6", /* cyan    */
+    [7] = "#d6dbe5", /* white   */
 
-	/* 8 bright colors */
-	"#303030",
-	"#ff0090",
-	"#80FF00",
-	"#ffba68",
-	"#5f5fee",
-	"#bb88dd",
-	"#4eb4fa",
-	"#ffffff",
+    /* 8 bright colors */
+    [8]  = "#d6dbe5", /* black   */
+    [9]  = "#de352e", /* red     */
+    [10] = "#1dd361", /* green   */
+    [11] = "#f3bd09", /* yellow  */
+    [12] = "#1081d6", /* blue    */
+    [13] = "#5350b9", /* magenta */
+    [14] = "#0f7ddb", /* cyan    */
+    [15] = "#ffffff", /* white   */
 
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#000000", /* 258 -> bg */
-	"#d0d0d0", /* 259 -> fg */
+    /* special colors */
+    [256] = "#131313", /* background */
+    [257] = "#d6dbe5", /* foreground */	/* 8 normal colors */
+    [258] = "#add8e6", /* cursor */
+    [259] = "#555555", /* rev cursor */
 };
 
 
@@ -127,10 +125,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 258;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 256;
 
 /*
  * Default shape of cursor
